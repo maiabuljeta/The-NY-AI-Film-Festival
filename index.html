@@ -59,7 +59,7 @@
         }
 
         .hero {
-            background-image: url('/api/placeholder/1200/600');
+            background-image: url('https://source.unsplash.com/1600x900/?cinema,technology');
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -100,6 +100,7 @@
             font-weight: bold;
             border-radius: 5px;
             transition: background-color 0.3s ease;
+            margin-top: 20px; /* Add margin to create space */
         }
 
         .btn:hover {
@@ -173,7 +174,7 @@
             <div class="hero-content">
                 <h1>New York AI Film Festival</h1>
                 <p>Celebrating the intersection of artificial intelligence and filmmaking</p>
-                <a href="https://filmmakers.festhome.com/festival/new-york-ai-film-festival" class="btn">Submit Your Film</a>
+                <!-- Moved the button further down -->
             </div>
         </section>
 
@@ -182,6 +183,7 @@
                 <h2>About the Festival</h2>
                 <p>The New York AI Film Festival is a groundbreaking event celebrating the intersection of artificial intelligence and filmmaking. This innovative festival showcases a diverse array of films created, enhanced, or inspired by AI technologies, highlighting the potential of machine learning and generative models in storytelling, visual effects, and cinematic experiences.</p>
                 <p>From AI-assisted virtual productions to autonomous animation and immersive virtual environments, the festival provides a platform for visionary filmmakers and technologists to explore how AI is reshaping the future of the film industry. Through screenings, panel discussions, and workshops, the New York AI Film Festival fosters collaboration between artists, AI researchers, and audiences, pushing the boundaries of creativity and expanding the definition of what's possible in modern cinema.</p>
+                <a href="https://filmmakers.festhome.com/festival/new-york-ai-film-festival" class="btn">Submit Your Film</a> <!-- Updated the link -->
             </div>
         </section>
 
@@ -245,39 +247,11 @@
                     </div>
                     <div class="card">
                         <h3>Pioneering Use of AI in Cinematography</h3>
-                        <p>Celebrating groundbreaking AI-powered visual techniques.</p>
+                        <p>For films showcasing the most creative use of AI technologies.</p>
                     </div>
                     <div class="card">
-                        <h3>Innovation in AI-Assisted Scriptwriting</h3>
-                        <p>Honoring creative storytelling through AI-driven writing.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Cutting-Edge Visual Creativity Award</h3>
-                        <p>Acknowledging extraordinary AI-generated or enhanced imagery.</p>
-                    </div>
-                    <div class="card">
-                        <h3>AI-Driven Performance Award</h3>
-                        <p>Highlighting exceptional human-AI collaboration in performances.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Future of Filmmaking Award</h3>
-                        <p>Recognizing AI's potential to revolutionize film production.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Boundary-Pushing Soundscapes Award</h3>
-                        <p>Celebrating innovative AI-driven sound design or music composition.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Immersive AI Experience Award</h3>
-                        <p>Honoring engaging, interactive, or immersive AI-driven cinematic experiences.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Ethical AI Storytelling Recognition</h3>
-                        <p>Recognizing thoughtful exploration of AI's ethical implications.</p>
-                    </div>
-                    <div class="card">
-                        <h3>AI-Enhanced Editing Mastery</h3>
-                        <p>Celebrating exceptional creativity in AI-assisted editing.</p>
+                        <h3>Audience Choice Award</h3>
+                        <p>Voted by festival attendees for the most engaging film.</p>
                     </div>
                 </div>
             </div>
@@ -285,49 +259,22 @@
     </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2024 New York AI Film Festival. Founded by Maia Buljeta-Fuchs, CEO of Hypothius Picturehouse Films.</p>
-        </div>
+        <p>&copy; 2024 New York AI Film Festival. All rights reserved.</p>
     </footer>
 
     <script>
-        // Initialize GSAP and ScrollTrigger
         gsap.registerPlugin(ScrollTrigger);
 
-        // Animate sections on scroll
-        gsap.utils.toArray('section').forEach(section => {
-            gsap.from(section, {
-                opacity: 0,
-                y: 50,
-                duration: 1,
-                scrollTrigger: {
-                    trigger: section,
-                    start: 'top 80%',
-                    end: 'bottom 20%',
-                    toggleActions: 'play none none reverse'
-                }
-            });
-        });
-
-        // Animate cards on hover
-        const cards = document.querySelectorAll('.card');
-        cards.forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                gsap.to(card, { scale: 1.05, duration: 0.3 });
-            });
-            card.addEventListener('mouseleave', () => {
-                gsap.to(card, { scale: 1, duration: 0.3 });
-            });
-        });
-
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
+        gsap.from('.hero-content', {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            scrollTrigger: {
+                trigger: '.hero',
+                start: 'top center',
+                end: 'bottom center',
+                toggleActions: 'play none none reverse',
+            }
         });
     </script>
 </body>
